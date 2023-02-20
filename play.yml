@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: yes
+
+  tasks:
+  - name: update packages
+    apt:
+      update_cache: yes 
+
+  - name: installing apache
+    apt:
+      name: apache
+      state: latest
+  - name: copy files
+    copy:
+      src:
+      dest:
+      owner: root
+      group: root
+      mode: 0644
